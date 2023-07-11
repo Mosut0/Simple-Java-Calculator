@@ -1,0 +1,222 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CalculatorTest</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">simplejavacalculator</a>
+</div>
+
+<h1>Coverage Summary for Class: CalculatorTest (simplejavacalculator)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CalculatorTest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (17/17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (43/43)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package simplejavacalculator;
+&nbsp;
+&nbsp;import org.junit.jupiter.api.Assertions;
+&nbsp;import org.junit.jupiter.api.Test;
+&nbsp;import static java.lang.Double.NaN;
+&nbsp;import java.lang.Math;
+&nbsp;
+&nbsp;
+&nbsp;import simplejavacalculator.Calculator;
+&nbsp;
+<b class="fc">&nbsp;class CalculatorTest {</b>
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void calculateBiNormalTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.0);</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(NaN, calculator.calculateBi(Calculator.BiOperatorModes.normal, 3.0));</b>
+&nbsp;    }
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void calculateBiAddTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		calculator.calculateBi(Calculator.BiOperatorModes.add, 3.0);</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(5.5, calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.5));</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void calculateBiMinusTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		calculator.calculateBi(Calculator.BiOperatorModes.minus, 3.1415);</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(2.0415, calculator.calculateBi(Calculator.BiOperatorModes.normal, 1.1));</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void calculateBiMultiplyTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		calculator.calculateBi(Calculator.BiOperatorModes.multiply, 3.2);</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(6.4, calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.0));</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void calculateBiDivideTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		calculator.calculateBi(Calculator.BiOperatorModes.divide, 6.4);</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(3.2, calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.0));</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void calculateEqualTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		calculator.calculateBi(Calculator.BiOperatorModes.add, 6.4);</b>
+<b class="fc">&nbsp;		calculator.calculateBi(Calculator.BiOperatorModes.add, 2.0);</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(11.4, calculator.calculateEqual(3.0));</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void resetTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		calculator.calculateBi(Calculator.BiOperatorModes.add, 6.4);</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(8.4, calculator.calculateBi(Calculator.BiOperatorModes.add, 2.0));</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(NaN, calculator.reset());		</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void CalculateMonoSquareTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(9.0, calculator.calculateMono(Calculator.MonoOperatorModes.square, 3.0));</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void CalculateMonoSquareRootTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(5.0, calculator.calculateMono(Calculator.MonoOperatorModes.squareRoot, 25.0));</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void CalculateMonoOneDividedByTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(0.10, calculator.calculateMono(Calculator.MonoOperatorModes.oneDividedBy, 10.0));</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void CalculateMonoSinTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(0.009138395397176044, calculator.calculateMono(Calculator.MonoOperatorModes.sin, java.lang.Math.PI / 6), 0.0000000001);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	@Test
+&nbsp;	void CalculateMonoCosTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(0.9998329794591297, calculator.calculateMono(Calculator.MonoOperatorModes.cos, java.lang.Math.PI / 3), 0.0000000001);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	@Test
+&nbsp;	void CalculateMonoTanTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(0.013708642534394057, calculator.calculateMono(Calculator.MonoOperatorModes.tan, java.lang.Math.PI / 4), 0.0000000001);</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void CalculateMonoLogTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(2.0, calculator.calculateMono(Calculator.MonoOperatorModes.log, 100.0));</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void CalculateMonoRateTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(.75, calculator.calculateMono(Calculator.MonoOperatorModes.rate, 75.0));</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Test
+&nbsp;	void CalculateMonoAbsTest() {
+<b class="fc">&nbsp;		Calculator calculator = new Calculator();</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(3.0, calculator.calculateMono(Calculator.MonoOperatorModes.abs, -3.0));</b>
+<b class="fc">&nbsp;		Assertions.assertEquals(3.0, calculator.calculateMono(Calculator.MonoOperatorModes.abs, 3.0));</b>
+&nbsp;	}
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-11 13:02</div>
+</div>
+</body>
+</html>

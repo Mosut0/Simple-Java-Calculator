@@ -1,0 +1,442 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > UI</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">simplejavacalculator</a>
+</div>
+
+<h1>Coverage Summary for Class: UI (simplejavacalculator)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UI</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/192)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/**
+&nbsp; * @name        Simple Java Calculator
+&nbsp; * @package     ph.calculator
+&nbsp; * @file        UI.java
+&nbsp; * @author      SORIA Pierre-Henry
+&nbsp; * @email       pierrehs@hotmail.com
+&nbsp; * @link        http://github.com/pH-7
+&nbsp; * @copyright   Copyright Pierre-Henry SORIA, All Rights Reserved.
+&nbsp; * @license     Apache (http://www.apache.org/licenses/LICENSE-2.0)
+&nbsp; * @create      2012-03-30
+&nbsp; *
+&nbsp; * @modifiedby  Achintha Gunasekara
+&nbsp; * @modifiedby  Kydon Chantzaridis
+&nbsp; * @modweb      http://www.achinthagunasekara.com
+&nbsp; * @modemail    contact@achinthagunasekara.com
+&nbsp; * @modemail    kchantza@csd.auth.gr
+&nbsp; */
+&nbsp;
+&nbsp;package simplejavacalculator;
+&nbsp;
+&nbsp;import java.awt.FlowLayout;
+&nbsp;import java.awt.event.ActionEvent;
+&nbsp;import java.awt.event.ActionListener;
+&nbsp;
+&nbsp;import javax.swing.JButton;
+&nbsp;import javax.swing.JFrame;
+&nbsp;import javax.swing.JPanel;
+&nbsp;import javax.swing.JTextArea;
+&nbsp;import java.awt.Font;
+&nbsp;import javax.swing.Box;
+&nbsp;import javax.swing.BoxLayout;
+&nbsp;
+&nbsp;import java.awt.Image;
+&nbsp;import javax.swing.ImageIcon; 
+&nbsp;import java.io.*;
+&nbsp;
+&nbsp;public class UI implements ActionListener {
+&nbsp;   
+&nbsp;   private final JFrame frame;
+&nbsp;   
+&nbsp;   private final JPanel panel;
+&nbsp;   private final JPanel panelSub1;
+&nbsp;   private final JPanel panelSub2;
+&nbsp;   private final JPanel panelSub3;
+&nbsp;   private final JPanel panelSub4;
+&nbsp;   private final JPanel panelSub5;
+&nbsp;   private final JPanel panelSub6;
+&nbsp;   private final JPanel panelSub7;
+&nbsp;   private final JPanel panelSub8;
+&nbsp;   
+&nbsp;   private final JTextArea text;
+&nbsp;   
+&nbsp;   private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
+&nbsp;      butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
+&nbsp;      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln;
+&nbsp;   private final Calculator calc;
+&nbsp;   
+<b class="nc">&nbsp;   private final String[] buttonValue = {&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;,</b>
+&nbsp;      &quot;7&quot;, &quot;8&quot;, &quot;9&quot;};
+&nbsp;   
+&nbsp;
+&nbsp;   private final Font font;
+&nbsp;   private final Font textFont;
+&nbsp;   private ImageIcon image;
+&nbsp;   private BufferedImageCustom imageReturn;
+&nbsp;   
+<b class="nc">&nbsp;   public UI() throws IOException {</b>
+<b class="nc">&nbsp;      frame = new JFrame(&quot;Calculator PH&quot;);</b>
+&nbsp;      
+<b class="nc">&nbsp;      imageReturn = new BufferedImageCustom();</b>
+<b class="nc">&nbsp;      image = new ImageIcon(imageReturn.imageReturn());      </b>
+&nbsp;      
+<b class="nc">&nbsp;      panel = new JPanel();</b>
+<b class="nc">&nbsp;      panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));</b>
+<b class="nc">&nbsp;      panelSub1 = new JPanel(new FlowLayout());</b>
+<b class="nc">&nbsp;      panelSub2 = new JPanel(new FlowLayout());</b>
+<b class="nc">&nbsp;      panelSub3 = new JPanel(new FlowLayout());</b>
+<b class="nc">&nbsp;      panelSub4 = new JPanel(new FlowLayout());</b>
+<b class="nc">&nbsp;      panelSub5 = new JPanel(new FlowLayout());</b>
+<b class="nc">&nbsp;      panelSub6 = new JPanel(new FlowLayout());</b>
+<b class="nc">&nbsp;      panelSub7 = new JPanel(new FlowLayout());</b>
+<b class="nc">&nbsp;      panelSub8 = new JPanel(new FlowLayout());</b>
+&nbsp;      
+<b class="nc">&nbsp;      font = new Font(&quot;Consolas&quot;,Font.PLAIN, 18);</b>
+&nbsp;      
+<b class="nc">&nbsp;      text = new JTextArea(1, 30);</b>
+&nbsp;      
+<b class="nc">&nbsp;      textFont = new Font(&quot;Consolas&quot;,Font.BOLD, 24);</b>
+&nbsp;      
+<b class="nc">&nbsp;      but = new JButton[10];      </b>
+<b class="nc">&nbsp;      for (int i = 0; i &lt; 10; i++) {</b>
+<b class="nc">&nbsp;    		 but[i] = new JButton(String.valueOf(i));</b>
+&nbsp;      }      
+<b class="nc">&nbsp;      butAdd = new JButton(&quot;+&quot;);      </b>
+<b class="nc">&nbsp;      butMinus = new JButton(&quot;-&quot;);      </b>
+<b class="nc">&nbsp;      butMultiply = new JButton(&quot;*&quot;);      </b>
+<b class="nc">&nbsp;      butDivide = new JButton(&quot;/&quot;);      </b>
+<b class="nc">&nbsp;      butEqual = new JButton(&quot;=&quot;);      </b>
+<b class="nc">&nbsp;      butSquareRoot = new JButton(&quot;sqrt&quot;);      </b>
+<b class="nc">&nbsp;      butSquare = new JButton(&quot;x*x&quot;);      </b>
+<b class="nc">&nbsp;      butOneDividedBy = new JButton(&quot;1/x&quot;);      </b>
+<b class="nc">&nbsp;      butCos = new JButton(&quot;Cos&quot;);      </b>
+<b class="nc">&nbsp;      butSin = new JButton(&quot;Sin&quot;);      </b>
+<b class="nc">&nbsp;      butTan = new JButton(&quot;Tan&quot;);      </b>
+<b class="nc">&nbsp;      butln = new JButton(&quot;ln&quot;);     </b>
+<b class="nc">&nbsp;      butxpowerofy = new JButton(&quot;x^y&quot;);      </b>
+<b class="nc">&nbsp;      butlog = new JButton(&quot;log10(x)&quot;);      </b>
+<b class="nc">&nbsp;      butrate = new JButton(&quot;x%&quot;);      </b>
+<b class="nc">&nbsp;      butabs = new JButton(&quot;abs(x)&quot;);      </b>
+<b class="nc">&nbsp;      butCancel = new JButton(&quot;C&quot;);      </b>
+<b class="nc">&nbsp;      butBinary = new JButton(&quot;Bin&quot;);      </b>
+&nbsp;      
+<b class="nc">&nbsp;      calc = new Calculator();</b>
+&nbsp;      
+&nbsp;   }
+&nbsp;   
+&nbsp;   public void init() {      
+<b class="nc">&nbsp;      frame.setSize(450, 450);</b>
+<b class="nc">&nbsp;      frame.setLocationRelativeTo(null); </b>
+<b class="nc">&nbsp;      frame.setResizable(false);</b>
+<b class="nc">&nbsp;      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</b>
+<b class="nc">&nbsp;      frame.setIconImage(image.getImage());</b>
+&nbsp;      
+<b class="nc">&nbsp;      text.setFont(textFont);</b>
+<b class="nc">&nbsp;      text.setEditable(false);</b>
+&nbsp;      
+<b class="nc">&nbsp;      for (int i = 0; i &lt; 10; i++) {</b>
+<b class="nc">&nbsp;         but[i].setFont(font);</b>
+&nbsp;      }      
+<b class="nc">&nbsp;      butAdd.setFont(font);</b>
+<b class="nc">&nbsp;      butMinus.setFont(font);</b>
+<b class="nc">&nbsp;      butMultiply.setFont(font);</b>
+<b class="nc">&nbsp;      butDivide.setFont(font);</b>
+<b class="nc">&nbsp;      butEqual.setFont(font);</b>
+<b class="nc">&nbsp;      butSquareRoot.setFont(font);</b>
+<b class="nc">&nbsp;      butSquare.setFont(font);</b>
+<b class="nc">&nbsp;      butOneDividedBy.setFont(font);</b>
+<b class="nc">&nbsp;      butCos.setFont(font);</b>
+<b class="nc">&nbsp;      butSin.setFont(font);</b>
+<b class="nc">&nbsp;      butTan.setFont(font);</b>
+<b class="nc">&nbsp;      butln.setFont(font); </b>
+<b class="nc">&nbsp;      butxpowerofy.setFont(font);</b>
+<b class="nc">&nbsp;      butlog.setFont(font);</b>
+<b class="nc">&nbsp;      butrate.setFont(font);</b>
+<b class="nc">&nbsp;      butabs.setFont(font);</b>
+<b class="nc">&nbsp;      butCancel.setFont(font);</b>
+<b class="nc">&nbsp;      butBinary.setFont(font); </b>
+&nbsp;      
+<b class="nc">&nbsp;      panel.add(Box.createHorizontalStrut(100));</b>
+<b class="nc">&nbsp;      panelSub1.add(text);</b>
+<b class="nc">&nbsp;      panel.add(panelSub1);</b>
+&nbsp;      
+<b class="nc">&nbsp;      panelSub2.add(but[1]);</b>
+<b class="nc">&nbsp;      panelSub2.add(but[2]);</b>
+<b class="nc">&nbsp;      panelSub2.add(but[3]);</b>
+<b class="nc">&nbsp;      panelSub2.add(Box.createHorizontalStrut(15));</b>
+<b class="nc">&nbsp;      panelSub2.add(butAdd);</b>
+<b class="nc">&nbsp;      panelSub2.add(butMinus);</b>
+<b class="nc">&nbsp;      panel.add(panelSub2);</b>
+&nbsp;      
+<b class="nc">&nbsp;      panelSub3.add(but[4]);</b>
+<b class="nc">&nbsp;      panelSub3.add(but[5]);</b>
+<b class="nc">&nbsp;      panelSub3.add(but[6]);</b>
+<b class="nc">&nbsp;      panelSub3.add(Box.createHorizontalStrut(15));</b>
+<b class="nc">&nbsp;      panelSub3.add(butMultiply);</b>
+<b class="nc">&nbsp;      panelSub3.add(butDivide);      </b>
+<b class="nc">&nbsp;      panel.add(panelSub3);</b>
+&nbsp;      
+<b class="nc">&nbsp;      panelSub4.add(but[7]);</b>
+<b class="nc">&nbsp;      panelSub4.add(but[8]);</b>
+<b class="nc">&nbsp;      panelSub4.add(but[9]);</b>
+<b class="nc">&nbsp;      panelSub4.add(Box.createHorizontalStrut(15));</b>
+<b class="nc">&nbsp;      panelSub4.add(butEqual);</b>
+<b class="nc">&nbsp;      panelSub4.add(butCancel);</b>
+<b class="nc">&nbsp;      panel.add(panelSub4);</b>
+&nbsp;      
+<b class="nc">&nbsp;      panelSub5.add(Box.createHorizontalStrut(92));</b>
+<b class="nc">&nbsp;      panelSub5.add(but[0]);</b>
+<b class="nc">&nbsp;      panelSub5.add(butln); </b>
+<b class="nc">&nbsp;      panelSub5.add(Box.createHorizontalStrut(210));</b>
+<b class="nc">&nbsp;      panel.add(panelSub5);</b>
+&nbsp;      
+<b class="nc">&nbsp;      panelSub6.add(butSquare);</b>
+<b class="nc">&nbsp;      panelSub6.add(butSquareRoot);</b>
+<b class="nc">&nbsp;      panelSub6.add(butOneDividedBy);</b>
+<b class="nc">&nbsp;      panelSub6.add(butxpowerofy);</b>
+<b class="nc">&nbsp;      panel.add(panelSub6);</b>
+&nbsp;      
+<b class="nc">&nbsp;      panelSub7.add(butCos);</b>
+<b class="nc">&nbsp;      panelSub7.add(butSin);</b>
+<b class="nc">&nbsp;      panelSub7.add(butTan);</b>
+<b class="nc">&nbsp;      panel.add(panelSub7);</b>
+&nbsp;      
+<b class="nc">&nbsp;      panelSub8.add(butlog);</b>
+<b class="nc">&nbsp;      panelSub8.add(butrate);</b>
+<b class="nc">&nbsp;      panelSub8.add(butabs);</b>
+<b class="nc">&nbsp;      panelSub8.add(butBinary);</b>
+<b class="nc">&nbsp;      panel.add(panelSub8);</b>
+&nbsp;      
+<b class="nc">&nbsp;      for (int i = 0; i &lt; 10; i++) {</b>
+<b class="nc">&nbsp;         but[i].addActionListener(this);</b>
+&nbsp;      }      
+<b class="nc">&nbsp;      butAdd.addActionListener(this);</b>
+<b class="nc">&nbsp;      butMinus.addActionListener(this);</b>
+<b class="nc">&nbsp;      butMultiply.addActionListener(this);</b>
+<b class="nc">&nbsp;      butDivide.addActionListener(this);</b>
+<b class="nc">&nbsp;      butSquare.addActionListener(this);</b>
+<b class="nc">&nbsp;      butSquareRoot.addActionListener(this);</b>
+<b class="nc">&nbsp;      butOneDividedBy.addActionListener(this);</b>
+<b class="nc">&nbsp;      butCos.addActionListener(this);</b>
+<b class="nc">&nbsp;      butSin.addActionListener(this);</b>
+<b class="nc">&nbsp;      butTan.addActionListener(this);</b>
+<b class="nc">&nbsp;      butln.addActionListener(this); </b>
+<b class="nc">&nbsp;      butxpowerofy.addActionListener(this);</b>
+<b class="nc">&nbsp;      butlog.addActionListener(this);</b>
+<b class="nc">&nbsp;      butrate.addActionListener(this);</b>
+<b class="nc">&nbsp;      butabs.addActionListener(this);</b>
+<b class="nc">&nbsp;      butBinary.addActionListener(this);</b>
+&nbsp;      
+<b class="nc">&nbsp;      butEqual.addActionListener(this);</b>
+<b class="nc">&nbsp;      butCancel.addActionListener(this);</b>
+&nbsp;      
+<b class="nc">&nbsp;      frame.add(panel);</b>
+<b class="nc">&nbsp;      frame.setVisible(true);</b>
+&nbsp;   }
+&nbsp;
+&nbsp;   @Override
+&nbsp;   public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;      final Object source = e.getSource();</b>
+<b class="nc">&nbsp;      Double checkNum = null;</b>
+&nbsp;
+<b class="nc">&nbsp;      for (int i = 0; i &lt; 10; i++) {</b>
+<b class="nc">&nbsp;         if (source == but[i]) {</b>
+<b class="nc">&nbsp;            text.replaceSelection(buttonValue[i]);</b>
+&nbsp;            return;
+&nbsp;         }
+&nbsp;      }
+&nbsp;
+&nbsp;    
+&nbsp;      try {
+<b class="nc">&nbsp;         checkNum = Double.parseDouble(text.getText());</b>
+<b class="nc">&nbsp;      } catch(NumberFormatException k) {</b>
+&nbsp;
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      if (checkNum != null || source == butCancel) {</b>
+<b class="nc">&nbsp;         if (source == butAdd) {</b>
+<b class="nc">&nbsp;            writer(calc.calculateBi(Calculator.BiOperatorModes.add, reader()));</b>
+<b class="nc">&nbsp;            text.replaceSelection(butAdd.getText());</b>
+&nbsp;         }
+&nbsp;
+<b class="nc">&nbsp;         if (source == butMinus) {</b>
+<b class="nc">&nbsp;            writer(calc.calculateBi(Calculator.BiOperatorModes.minus, reader()));</b>
+<b class="nc">&nbsp;            text.replaceSelection(butMinus.getText());</b>
+&nbsp;         }
+&nbsp;
+<b class="nc">&nbsp;         if (source == butMultiply) {</b>
+<b class="nc">&nbsp;            writer(calc.calculateBi(Calculator.BiOperatorModes.multiply, reader()));</b>
+<b class="nc">&nbsp;            text.replaceSelection(butMultiply.getText());</b>
+&nbsp;         }
+&nbsp;
+<b class="nc">&nbsp;         if (source == butDivide) {</b>
+<b class="nc">&nbsp;            writer(calc.calculateBi(Calculator.BiOperatorModes.divide, reader()));</b>
+<b class="nc">&nbsp;            text.replaceSelection(butDivide.getText());</b>
+&nbsp;         }
+&nbsp;         
+<b class="nc">&nbsp;         if (source == butxpowerofy) {</b>
+<b class="nc">&nbsp;            writer(calc.calculateBi(Calculator.BiOperatorModes.xpowerofy, reader()));</b>
+&nbsp;         }
+&nbsp;
+<b class="nc">&nbsp;         if (source == butSquare) {</b>
+<b class="nc">&nbsp;            writer(calc.calculateMono(Calculator.MonoOperatorModes.square, reader()));</b>
+&nbsp;         }
+&nbsp;
+<b class="nc">&nbsp;         if (source == butSquareRoot)</b>
+<b class="nc">&nbsp;            writer(calc.calculateMono(Calculator.MonoOperatorModes.squareRoot, reader()));</b>
+&nbsp;
+<b class="nc">&nbsp;         if (source == butOneDividedBy)</b>
+<b class="nc">&nbsp;            writer(calc.calculateMono(Calculator.MonoOperatorModes.oneDividedBy, reader()));</b>
+&nbsp;
+<b class="nc">&nbsp;         if (source == butCos)</b>
+<b class="nc">&nbsp;            writer(calc.calculateMono(Calculator.MonoOperatorModes.cos, reader()));</b>
+&nbsp;
+<b class="nc">&nbsp;         if (source == butSin)</b>
+<b class="nc">&nbsp;            writer(calc.calculateMono(Calculator.MonoOperatorModes.sin, reader()));</b>
+&nbsp;
+<b class="nc">&nbsp;         if (source == butTan)</b>
+<b class="nc">&nbsp;            writer(calc.calculateMono(Calculator.MonoOperatorModes.tan, reader()));</b>
+&nbsp;
+<b class="nc">&nbsp;         if (source == butlog)</b>
+<b class="nc">&nbsp;            writer(calc.calculateMono(Calculator.MonoOperatorModes.log, reader()));</b>
+&nbsp;
+<b class="nc">&nbsp;         if (source == butln)</b>
+<b class="nc">&nbsp;            writer(calc.calculateMono(Calculator.MonoOperatorModes.ln, reader())); </b>
+&nbsp;
+<b class="nc">&nbsp;         if (source == butrate)</b>
+<b class="nc">&nbsp;            writer(calc.calculateMono(Calculator.MonoOperatorModes.rate, reader()));</b>
+&nbsp;
+<b class="nc">&nbsp;         if (source == butabs)</b>
+<b class="nc">&nbsp;            writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));</b>
+&nbsp;
+<b class="nc">&nbsp;         if (source == butEqual)</b>
+<b class="nc">&nbsp;            writer(calc.calculateEqual(reader()));</b>
+&nbsp;
+<b class="nc">&nbsp;         if (source == butCancel)</b>
+<b class="nc">&nbsp;            writer(calc.reset());</b>
+&nbsp;
+<b class="nc">&nbsp;         if (source == butBinary)</b>
+<b class="nc">&nbsp;            parsetoBinary();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      text.selectAll();</b>
+&nbsp;   }
+&nbsp;   
+&nbsp;   private void parsetoBinary() {
+&nbsp;      try {
+<b class="nc">&nbsp;         text.setText(&quot;&quot; + Long.toBinaryString(Long.parseLong(text.getText())));</b>
+<b class="nc">&nbsp;      } catch (NumberFormatException ex) {</b>
+<b class="nc">&nbsp;         System.err.println(&quot;Error while parse to binary.&quot; + ex.toString());</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;   }
+&nbsp;   
+&nbsp;   public Double reader() {
+&nbsp;      Double num;
+&nbsp;      String str;
+<b class="nc">&nbsp;      str = text.getText();</b>
+<b class="nc">&nbsp;      num = Double.valueOf(str);</b>
+&nbsp;      
+<b class="nc">&nbsp;      return num;</b>
+&nbsp;   }
+&nbsp;   
+&nbsp;   public void writer(final Double num) {
+<b class="nc">&nbsp;      if (Double.isNaN(num)) {</b>
+<b class="nc">&nbsp;         text.setText(&quot;&quot;);</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;         text.setText(Double.toString(num));</b>
+&nbsp;      }
+&nbsp;   }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-11 13:02</div>
+</div>
+</body>
+</html>
