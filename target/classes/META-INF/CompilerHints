@@ -1,0 +1,11 @@
+dontinline,*.*_all_jmhStub
+dontinline,*.*_avgt_jmhStub
+dontinline,*.*_sample_jmhStub
+dontinline,*.*_ss_jmhStub
+dontinline,*.*_thrpt_jmhStub
+inline,simplejavacalculator/CalculatorBenchmark.testAddition
+inline,simplejavacalculator/CalculatorBenchmark.testDivision
+inline,simplejavacalculator/CalculatorBenchmark.testLogarithm
+inline,simplejavacalculator/CalculatorBenchmark.testMultiplication
+inline,simplejavacalculator/CalculatorBenchmark.testSquareRoot
+inline,simplejavacalculator/CalculatorBenchmark.testSubtraction
