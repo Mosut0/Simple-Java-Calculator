@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > SimpleJavaCalculator</title>
+  <title>Coverage Report > CalculatorBenchmark</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -21,7 +21,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">simplejavacalculator</a>
 </div>
 
-<h1>Coverage Summary for Class: SimpleJavaCalculator (simplejavacalculator)</h1>
+<h1>Coverage Summary for Class: CalculatorBenchmark (simplejavacalculator)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -40,7 +40,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">SimpleJavaCalculator</td>
+  <td class="name">CalculatorBenchmark</td>
 <td class="coverageStat">
   <span class="percent">
     0%
@@ -54,7 +54,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     0%
   </span>
   <span class="absValue">
-    (0/2)
+    (0/7)
   </span>
 </td>
 <td class="coverageStat">
@@ -62,7 +62,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     0%
   </span>
   <span class="absValue">
-    (0/6)
+    (0/17)
   </span>
 </td>
 </tr>
@@ -74,36 +74,58 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;/**
-&nbsp; * @name        Simple Java Calculator
-&nbsp; * @package     ph.calculator
-&nbsp; * @file        Main.java
-&nbsp; * @author      SORIA Pierre-Henry
-&nbsp; * @email       pierrehs@hotmail.com
-&nbsp; * @link        http://github.com/pH-7
-&nbsp; * @copyright   Copyright Pierre-Henry SORIA, All Rights Reserved.
-&nbsp; * @license     Apache (http://www.apache.org/licenses/LICENSE-2.0)
-&nbsp; * @create      2012-03-30
-&nbsp; *
-&nbsp; * @modifiedby  Achintha Gunasekara
-&nbsp; * @modweb      http://www.achinthagunasekara.com
-&nbsp; * @modemail    contact@achinthagunasekara.com
-&nbsp; */
+<code class="sourceCode" id="sourceCode">&nbsp;package simplejavacalculator;
 &nbsp;
-&nbsp;package simplejavacalculator;
+&nbsp;import org.openjdk.jmh.annotations.Benchmark;
+&nbsp;import org.openjdk.jmh.annotations.BenchmarkMode;
+&nbsp;import org.openjdk.jmh.annotations.Mode;
+&nbsp;import org.openjdk.jmh.annotations.OutputTimeUnit;
 &nbsp;
-<b class="nc">&nbsp;public class SimpleJavaCalculator {</b>
-&nbsp;   
-&nbsp;   public static void main(String[] args) {
-&nbsp;      try {
-<b class="nc">&nbsp;         UI uiCal = new UI();</b>
-<b class="nc">&nbsp;         uiCal.init();</b>
-&nbsp;      }
-<b class="nc">&nbsp;      catch (Exception e) {</b>
-<b class="nc">&nbsp;         System.out.println(e.getMessage());   </b>
-<b class="nc">&nbsp;      }</b>
-&nbsp;      
-&nbsp;   }
+&nbsp;import java.util.concurrent.TimeUnit;
+&nbsp;
+&nbsp;@BenchmarkMode(Mode.AverageTime)
+&nbsp;@OutputTimeUnit(TimeUnit.NANOSECONDS)
+<b class="nc">&nbsp;public class CalculatorBenchmark {</b>
+&nbsp;
+&nbsp;    @Benchmark
+&nbsp;    public void testAddition() {
+<b class="nc">&nbsp;        Calculator calc = new Calculator();</b>
+<b class="nc">&nbsp;        calc.calculateBi(Calculator.BiOperatorModes.add, 5.0);</b>
+<b class="nc">&nbsp;        calc.calculateEqual(3.0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Benchmark
+&nbsp;    public void testSubtraction() {
+<b class="nc">&nbsp;        Calculator calc = new Calculator();</b>
+<b class="nc">&nbsp;        calc.calculateBi(Calculator.BiOperatorModes.minus, 8.0);</b>
+<b class="nc">&nbsp;        calc.calculateEqual(3.0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Benchmark
+&nbsp;    public void testMultiplication() {
+<b class="nc">&nbsp;        Calculator calc = new Calculator();</b>
+<b class="nc">&nbsp;        calc.calculateBi(Calculator.BiOperatorModes.multiply, 7.0);</b>
+<b class="nc">&nbsp;        calc.calculateEqual(4.0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Benchmark
+&nbsp;    public void testDivision() {
+<b class="nc">&nbsp;        Calculator calc = new Calculator();</b>
+<b class="nc">&nbsp;        calc.calculateBi(Calculator.BiOperatorModes.divide, 20.0);</b>
+<b class="nc">&nbsp;        calc.calculateEqual(4.0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Benchmark
+&nbsp;    public void testSquareRoot() {
+<b class="nc">&nbsp;        Calculator calc = new Calculator();</b>
+<b class="nc">&nbsp;        calc.calculateMono(Calculator.MonoOperatorModes.squareRoot, 16.0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Benchmark
+&nbsp;    public void testLogarithm() {
+<b class="nc">&nbsp;        Calculator calc = new Calculator();</b>
+<b class="nc">&nbsp;        calc.calculateMono(Calculator.MonoOperatorModes.log, 100.0);</b>
+&nbsp;    }
 &nbsp;}
 </code>
 </pre>
@@ -128,7 +150,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-07-11 13:02</div>
+    <div style="float:right;">generated on 2023-07-11 23:46</div>
 </div>
 </body>
 </html>

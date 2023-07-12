@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > BufferedImageCustom</title>
+  <title>Coverage Report > SimpleJavaCalculator</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -21,7 +21,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">simplejavacalculator</a>
 </div>
 
-<h1>Coverage Summary for Class: BufferedImageCustom (simplejavacalculator)</h1>
+<h1>Coverage Summary for Class: SimpleJavaCalculator (simplejavacalculator)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -40,7 +40,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">BufferedImageCustom</td>
+  <td class="name">SimpleJavaCalculator</td>
 <td class="coverageStat">
   <span class="percent">
     0%
@@ -62,7 +62,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     0%
   </span>
   <span class="absValue">
-    (0/5)
+    (0/6)
   </span>
 </td>
 </tr>
@@ -74,28 +74,36 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;package simplejavacalculator;
-&nbsp;
-&nbsp;import java.io.*;
-&nbsp;import java.awt.image.BufferedImage;
-&nbsp;import javax.imageio.ImageIO;
-&nbsp;import java.awt.*;
-&nbsp;
-&nbsp;/**
-&nbsp; *This class will return an image
-&nbsp; *from a binary data.
+<code class="sourceCode" id="sourceCode">&nbsp;/**
+&nbsp; * @name        Simple Java Calculator
+&nbsp; * @package     ph.calculator
+&nbsp; * @file        Main.java
+&nbsp; * @author      SORIA Pierre-Henry
+&nbsp; * @email       pierrehs@hotmail.com
+&nbsp; * @link        http://github.com/pH-7
+&nbsp; * @copyright   Copyright Pierre-Henry SORIA, All Rights Reserved.
+&nbsp; * @license     Apache (http://www.apache.org/licenses/LICENSE-2.0)
+&nbsp; * @create      2012-03-30
+&nbsp; *
+&nbsp; * @modifiedby  Achintha Gunasekara
+&nbsp; * @modweb      http://www.achinthagunasekara.com
+&nbsp; * @modemail    contact@achinthagunasekara.com
 &nbsp; */
-<b class="nc">&nbsp;class BufferedImageCustom {</b>
-&nbsp;   public Image imageReturn() 
-&nbsp;      throws IOException {
-&nbsp;      Image image;
+&nbsp;
+&nbsp;package simplejavacalculator;
+&nbsp;
+<b class="nc">&nbsp;public class SimpleJavaCalculator {</b>
+&nbsp;   
+&nbsp;   public static void main(String[] args) {
+&nbsp;      try {
+<b class="nc">&nbsp;         UI uiCal = new UI();</b>
+<b class="nc">&nbsp;         uiCal.init();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      catch (Exception e) {</b>
+<b class="nc">&nbsp;         System.out.println(e.getMessage());   </b>
+<b class="nc">&nbsp;      }</b>
 &nbsp;      
-<b class="nc">&nbsp;      InputStream bis = getClass().getResourceAsStream(&quot;/resources/icon/icon.png&quot;);</b>
-<b class="nc">&nbsp;      BufferedImage bImage2 = ImageIO.read(bis);</b>
-<b class="nc">&nbsp;      image = bImage2;</b>
-&nbsp;      
-<b class="nc">&nbsp;      return image;</b>
-&nbsp;   }       
+&nbsp;   }
 &nbsp;}
 </code>
 </pre>

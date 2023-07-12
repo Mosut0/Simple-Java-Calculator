@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > BufferedImageCustom</title>
+  <title>Coverage Report > BenchmarkRunner</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -21,7 +21,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">simplejavacalculator</a>
 </div>
 
-<h1>Coverage Summary for Class: BufferedImageCustom (simplejavacalculator)</h1>
+<h1>Coverage Summary for Class: BenchmarkRunner (simplejavacalculator)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -40,7 +40,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">BufferedImageCustom</td>
+  <td class="name">BenchmarkRunner</td>
 <td class="coverageStat">
   <span class="percent">
     0%
@@ -62,7 +62,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     0%
   </span>
   <span class="absValue">
-    (0/5)
+    (0/6)
   </span>
 </td>
 </tr>
@@ -76,26 +76,22 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package simplejavacalculator;
 &nbsp;
-&nbsp;import java.io.*;
-&nbsp;import java.awt.image.BufferedImage;
-&nbsp;import javax.imageio.ImageIO;
-&nbsp;import java.awt.*;
+&nbsp;import org.openjdk.jmh.runner.Runner;
+&nbsp;import org.openjdk.jmh.runner.RunnerException;
+&nbsp;import org.openjdk.jmh.runner.options.Options;
+&nbsp;import org.openjdk.jmh.runner.options.OptionsBuilder;
 &nbsp;
-&nbsp;/**
-&nbsp; *This class will return an image
-&nbsp; *from a binary data.
-&nbsp; */
-<b class="nc">&nbsp;class BufferedImageCustom {</b>
-&nbsp;   public Image imageReturn() 
-&nbsp;      throws IOException {
-&nbsp;      Image image;
-&nbsp;      
-<b class="nc">&nbsp;      InputStream bis = getClass().getResourceAsStream(&quot;/resources/icon/icon.png&quot;);</b>
-<b class="nc">&nbsp;      BufferedImage bImage2 = ImageIO.read(bis);</b>
-<b class="nc">&nbsp;      image = bImage2;</b>
-&nbsp;      
-<b class="nc">&nbsp;      return image;</b>
-&nbsp;   }       
+<b class="nc">&nbsp;public class BenchmarkRunner {</b>
+&nbsp;
+&nbsp;    public static void main(String[] args) throws RunnerException {
+&nbsp;
+<b class="nc">&nbsp;        Options options = new OptionsBuilder()</b>
+<b class="nc">&nbsp;                .include(CalculatorBenchmark.class.getSimpleName())</b>
+<b class="nc">&nbsp;                .forks(1)</b>
+<b class="nc">&nbsp;                .build();</b>
+&nbsp;
+<b class="nc">&nbsp;        new Runner(options).run();</b>
+&nbsp;    }
 &nbsp;}
 </code>
 </pre>
@@ -120,7 +116,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-07-11 13:02</div>
+    <div style="float:right;">generated on 2023-07-11 23:46</div>
 </div>
 </body>
 </html>

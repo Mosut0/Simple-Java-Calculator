@@ -4,19 +4,52 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static java.lang.Double.NaN;
 import java.lang.Math;
+import java.lang.reflect.Field;
 
 
 import simplejavacalculator.Calculator;
 
 class CalculatorTest {
-	
+
+	@Test
+	void calculateBiImplUnknownModeTest() throws NoSuchFieldException, IllegalAccessException {
+		Calculator calculator = new Calculator();
+
+		Field modeField = Calculator.class.getDeclaredField("mode");
+		modeField.setAccessible(true);
+		modeField.set(calculator, null);
+
+		// Now try to calculate
+		Assertions.assertThrows(Error.class, () -> {
+			calculator.calculateBi(Calculator.BiOperatorModes.add, 3.0);
+		});
+	}
 	@Test
 	void calculateBiNormalTest() {
 		Calculator calculator = new Calculator();
 		calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.0);
 		Assertions.assertEquals(NaN, calculator.calculateBi(Calculator.BiOperatorModes.normal, 3.0));
     }
-	
+	@Test
+	void calculateBiXPowerYTest() {
+		Calculator calculator = new Calculator();
+		calculator.calculateBi(Calculator.BiOperatorModes.xpowerofy, 2.0);
+		Assertions.assertEquals(8.0, calculator.calculateBi(Calculator.BiOperatorModes.normal, 3.0));
+	}
+
+	@Test
+	void calculateBiAddTestNum01() {
+		Calculator calculator = new Calculator();
+		calculator.calculateBi(Calculator.BiOperatorModes.add, 1.0);
+		Assertions.assertEquals(1.0, calculator.calculateBi(Calculator.BiOperatorModes.normal, 0.0));
+	}
+	@Test
+	void calculateBiAddTestNum0() {
+		Calculator calculator = new Calculator();
+		calculator.calculateBi(Calculator.BiOperatorModes.add, 0.0);
+		Assertions.assertEquals(0.0, calculator.calculateBi(Calculator.BiOperatorModes.normal, 0.0));
+	}
+
 	@Test
 	void calculateBiAddTest() {
 		Calculator calculator = new Calculator();
@@ -90,7 +123,16 @@ class CalculatorTest {
 		Calculator calculator = new Calculator();
 		Assertions.assertEquals(0.9998329794591297, calculator.calculateMono(Calculator.MonoOperatorModes.cos, java.lang.Math.PI / 3), 0.0000000001);
 	}
-
+	@Test
+	void CalculateMonoTan90Test() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.tan, 90.0), 0.0);
+	}
+	@Test
+	void CalculateMonoTan0Test() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(0.0, calculator.calculateMono(Calculator.MonoOperatorModes.tan, 0.0), 0.0);
+	}
 	@Test
 	void CalculateMonoTanTest() {
 		Calculator calculator = new Calculator();
@@ -101,6 +143,12 @@ class CalculatorTest {
 	void CalculateMonoLogTest() {
 		Calculator calculator = new Calculator();
 		Assertions.assertEquals(2.0, calculator.calculateMono(Calculator.MonoOperatorModes.log, 100.0));
+	}
+
+	@Test
+	void CalculateMonoLnTest() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(1.0, calculator.calculateMono(Calculator.MonoOperatorModes.ln, 2.718281828459045));
 	}
 	
 	@Test
@@ -116,4 +164,11 @@ class CalculatorTest {
 		Assertions.assertEquals(3.0, calculator.calculateMono(Calculator.MonoOperatorModes.abs, 3.0));
 	}
 
+	@Test
+	void calculateMonoUnknownModeTest() {
+		Calculator calculator = new Calculator();
+		Assertions.assertThrows(Error.class, () -> {
+			calculator.calculateMono(null, 3.0);
+		});
+	}
 }

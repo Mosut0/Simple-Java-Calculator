@@ -61,15 +61,11 @@ public class UI implements ActionListener {
 
    private final Font font;
    private final Font textFont;
-   private ImageIcon image;
-   private BufferedImageCustom imageReturn;
-   
+
    public UI() throws IOException {
       frame = new JFrame("Calculator PH");
       
-      imageReturn = new BufferedImageCustom();
-      image = new ImageIcon(imageReturn.imageReturn());      
-      
+
       panel = new JPanel();
       panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
       panelSub1 = new JPanel(new FlowLayout());
@@ -119,8 +115,7 @@ public class UI implements ActionListener {
       frame.setLocationRelativeTo(null); 
       frame.setResizable(false);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      frame.setIconImage(image.getImage());
-      
+
       text.setFont(textFont);
       text.setEditable(false);
       
