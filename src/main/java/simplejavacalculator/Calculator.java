@@ -84,7 +84,7 @@ public class Calculator {
     }
 
     
-    public Double calculateMono(MonoOperatorModes newMode, Double num) {
+    public Double calculateMono(MonoOperatorModes  newMode, Double num) {
         if (newMode == MonoOperatorModes.square) {
             return num * num;
         }

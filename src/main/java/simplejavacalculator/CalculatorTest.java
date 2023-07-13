@@ -171,4 +171,65 @@ class CalculatorTest {
 			calculator.calculateMono(null, 3.0);
 		});
 	}
+
+	@Test
+	void calculateManyBiTest(){
+		Calculator calculator = new Calculator();
+
+		calculator.calculateBi(Calculator.BiOperatorModes.add, 5.0);
+		calculator.calculateBi(Calculator.BiOperatorModes.minus, 2.0);
+		calculator.calculateBi(Calculator.BiOperatorModes.multiply, 3.0);
+		calculator.calculateBi(Calculator.BiOperatorModes.divide, 4.0);
+		calculator.calculateBi(Calculator.BiOperatorModes.xpowerofy, 3.0);
+		double x = calculator.calculateBi(Calculator.BiOperatorModes.normal, 5.0);
+
+		Assertions.assertEquals(4315.127572016459, x);
+	}
+
+	@Test
+	void calculateManyMonoTest(){
+		Calculator calculator = new Calculator();
+
+		double x =
+				calculator.calculateMono(Calculator.MonoOperatorModes.sin,
+				calculator.calculateMono(Calculator.MonoOperatorModes.cos,
+				calculator.calculateMono(Calculator.MonoOperatorModes.tan,
+				calculator.calculateMono(Calculator.MonoOperatorModes.ln,
+				calculator.calculateMono(Calculator.MonoOperatorModes.abs,
+				calculator.calculateMono(Calculator.MonoOperatorModes.log,
+				calculator.calculateMono(Calculator.MonoOperatorModes.rate,
+				calculator.calculateMono(Calculator.MonoOperatorModes.abs,
+				calculator.calculateMono(Calculator.MonoOperatorModes.square,
+				calculator.calculateMono(Calculator.MonoOperatorModes.squareRoot,
+				calculator.calculateMono(Calculator.MonoOperatorModes.oneDividedBy, 10.0)))))))))));
+
+		Assertions.assertEquals(0.017452405459852646, x);
+	}
+
+	@Test
+	void calculateManyTest(){
+		Calculator calculator = new Calculator();
+
+		calculator.calculateBi(Calculator.BiOperatorModes.add, 5.0);
+		calculator.calculateBi(Calculator.BiOperatorModes.minus, 2.0);
+		calculator.calculateBi(Calculator.BiOperatorModes.multiply, 3.0);
+		calculator.calculateBi(Calculator.BiOperatorModes.divide, 4.0);
+		calculator.calculateBi(Calculator.BiOperatorModes.xpowerofy, 3.0);
+		double x = calculator.calculateBi(Calculator.BiOperatorModes.normal, 5.0);
+
+		double y =
+			calculator.calculateMono(Calculator.MonoOperatorModes.sin,
+			calculator.calculateMono(Calculator.MonoOperatorModes.cos,
+			calculator.calculateMono(Calculator.MonoOperatorModes.tan,
+			calculator.calculateMono(Calculator.MonoOperatorModes.ln,
+			calculator.calculateMono(Calculator.MonoOperatorModes.abs,
+			calculator.calculateMono(Calculator.MonoOperatorModes.log,
+			calculator.calculateMono(Calculator.MonoOperatorModes.rate,
+			calculator.calculateMono(Calculator.MonoOperatorModes.abs,
+			calculator.calculateMono(Calculator.MonoOperatorModes.square,
+			calculator.calculateMono(Calculator.MonoOperatorModes.squareRoot,
+			calculator.calculateMono(Calculator.MonoOperatorModes.oneDividedBy, x)))))))))));
+
+		Assertions.assertEquals(0.017452404015460624, y);
+	}
 }
