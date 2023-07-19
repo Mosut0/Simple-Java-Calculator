@@ -173,6 +173,12 @@ class CalculatorTest {
 	}
 
 	@Test
+	void calculateMaxDoubleTest() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(709.782712893384, calculator.calculateMono(Calculator.MonoOperatorModes.ln, Double.MAX_VALUE));
+	}
+
+	@Test
 	void calculateManyBiTest(){
 		Calculator calculator = new Calculator();
 
