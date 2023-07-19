@@ -6,16 +6,24 @@ public class SyntaxBasedTesting {
 
     public static void main(String[] args) {
         String[] testCases = {
-                "2 + 3",
-                "cos(0.5) + sqrt(16)",
-                "sqrt(25) + 13 / 12",
-                "2 * 3",
-                "cos(0.5)",
-                "log",
-                "abs-10",
-                "log(",
-                "sqrt2"
-        };
+            "2 + 3",
+            "cos(0.5) + sqrt(16)",
+            "sqrt(25) + 13 / 12",
+            "2 * 3",
+            "cos(0.5)",
+            "cos(-0.5)",
+            "log",
+            "abs-10",
+            "log(",
+            "sqrt2",
+            "3 * (4 + 5)",
+            "ln(2) + ln(3)",
+            "tan(0.785398)",
+            "1 / 0",
+            "square(4) - sqrt(16)",
+            "ln(abs(-5))",
+            "(2 + 3 * 4) / (5 - 1)",
+    };
 
         gLexer lexer = new gLexer(CharStreams.fromString(""));
         gParser parser = new gParser(new CommonTokenStream(lexer));
