@@ -129,6 +129,21 @@ class CalculatorTest {
 		Assertions.assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.tan, 90.0), 0.0);
 	}
 	@Test
+	void CalculateMonoSquareRootNegative() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.squareRoot, -1.0), 0.0);
+	}
+	@Test
+	void CalculateMonoLnNegative() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.ln, -1.0), 0.0);
+	}
+	@Test
+	void CalculateMonoLogNegative() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.log, -1.0), 0.0);
+	}
+	@Test
 	void CalculateMonoTan0Test() {
 		Calculator calculator = new Calculator();
 		Assertions.assertEquals(0.0, calculator.calculateMono(Calculator.MonoOperatorModes.tan, 0.0), 0.0);
