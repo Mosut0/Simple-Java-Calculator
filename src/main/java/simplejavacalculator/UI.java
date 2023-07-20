@@ -36,7 +36,7 @@ import java.io.*;
 
 public class UI implements ActionListener {
    
-   private final JFrame frame;
+   final JFrame frame;
    
    private final JPanel panel;
    private final JPanel panelSub1;
@@ -48,11 +48,27 @@ public class UI implements ActionListener {
    private final JPanel panelSub7;
    private final JPanel panelSub8;
    
-   private final JTextArea text;
+   final JTextArea text;
    
-   private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
-      butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln;
+   final JButton[] but;
+   final JButton butAdd;
+   final JButton butMinus;
+   final JButton butMultiply;
+   final JButton butDivide;
+   final JButton butEqual;
+   final JButton butCancel;
+   final JButton butSquareRoot;
+   final JButton butSquare;
+   final JButton butOneDividedBy;
+   final JButton butCos;
+   final JButton butSin;
+   final JButton butTan;
+   final JButton butxpowerofy;
+   final JButton butlog;
+   final JButton butrate;
+   final JButton butabs;
+   final JButton butBinary;
+   final JButton butln;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
