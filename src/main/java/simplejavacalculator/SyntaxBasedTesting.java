@@ -1,6 +1,8 @@
 package simplejavacalculator;
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
+
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 public class SyntaxBasedTesting {
 
@@ -34,8 +36,9 @@ public class SyntaxBasedTesting {
             parser.setInputStream(new CommonTokenStream(lexer));
 
             try {
-                ParseTree parseTree = parser.expression();
                 System.out.println("Parsed with the following Errors: ");
+                ParseTree parseTree = parser.expression();
+                Thread.sleep(1000);
             } catch (Exception e) {
                 System.out.println("Syntax Error: " + e.getMessage());
             }
