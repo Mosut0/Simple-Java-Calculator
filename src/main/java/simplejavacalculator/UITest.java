@@ -52,6 +52,12 @@ public class UITest {
     }
 
     @Test
+    public void testSquareRootNegative() {
+        performButtonClicks("0-9=q");
+        assertEquals("Undefined", ui.text.getText());
+    }
+
+    @Test
     public void testPercentage() {
         performButtonClicks("100+10%=");
         assertEquals("1.01", ui.text.getText());
@@ -127,6 +133,36 @@ public class UITest {
     public void testOneDivide() {
         performButtonClicks("8O");
         assertEquals("0.125", ui.text.getText());
+    }
+
+    @Test
+    public void testOneDivide0() {
+        performButtonClicks("0O");
+        assertEquals("Undefined", ui.text.getText());
+    }
+
+    @Test
+    public void testLn0() {
+        performButtonClicks("0n");
+        assertEquals("Undefined", ui.text.getText());
+    }
+
+    @Test
+    public void testLnNegative() {
+        performButtonClicks("0-5=n");
+        assertEquals("Undefined", ui.text.getText());
+    }
+
+    @Test
+    public void testLog0() {
+        performButtonClicks("0l");
+        assertEquals("Undefined", ui.text.getText());
+    }
+
+    @Test
+    public void testLogNegative() {
+        performButtonClicks("0-5=l");
+        assertEquals("Undefined", ui.text.getText());
     }
 
     private void performButtonClicks(String input) {

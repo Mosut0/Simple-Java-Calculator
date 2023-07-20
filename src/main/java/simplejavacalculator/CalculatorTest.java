@@ -51,6 +51,13 @@ class CalculatorTest {
 	}
 
 	@Test
+	void calculateBiDivideTest0() {
+		Calculator calculator = new Calculator();
+		calculator.calculateBi(Calculator.BiOperatorModes.divide, 6.4);
+		Assertions.assertEquals(NaN, calculator.calculateBi(Calculator.BiOperatorModes.normal, 0.0));
+	}
+
+	@Test
 	void calculateBiAddTest() {
 		Calculator calculator = new Calculator();
 		calculator.calculateBi(Calculator.BiOperatorModes.add, 3.0);
